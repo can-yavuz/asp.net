@@ -1,3 +1,4 @@
+using Basics.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Basics.Controllers
@@ -10,13 +11,37 @@ namespace Basics.Controllers
             return View("Index1", message);
         }
 
-        public ViewResult Index2()
+        public IActionResult Index2()
         {
-            return View("index");
+
+            Double date = DateTime.Now.Day;
+
+            return View("index2", date);
         }
 
         public IActionResult Index3(){
-            return Content("Employee");
+            String[] names = new String[]{
+                "Ahmet",
+                "Mehmet",
+                "Mustafa"
+            };
+            return View("index3", names);
+        }
+
+        public IActionResult Index4(){
+
+            var list = new List<Employee>(){
+
+                new Employee(){firstName = "Can", lastName = "Yavuz", id = 1, yas = 22},
+                new Employee(){firstName = "Tuğçe", lastName = "Köse", id = 2, yas = 34},
+                new Employee(){firstName = "Tuğba", lastName = "Kalem", id = 3, yas = 36},
+                new Employee(){firstName = "Hilal", lastName = "Harmancı", id = 4, yas = 33}
+
+
+            };
+
+
+            return View("index4", list);
         }
     
    }

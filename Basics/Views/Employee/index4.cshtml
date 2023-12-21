@@ -1,0 +1,12 @@
+@model List<Employee>
+<div>
+    <h3 class="display-3">
+
+        @foreach (Employee emp in Model){
+
+            <p>@emp.id @emp.firstName @emp.lastName @emp.yas</p>
+
+        }
+
+    </h3>
+</div>
